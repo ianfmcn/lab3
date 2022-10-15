@@ -3,6 +3,22 @@ import java.util.List;
 
 interface StringChecker { boolean checkString(String s); }
 
+class VowelChecker implements StringChecker {
+  public boolean checkString(String s) {
+    char[] vowels = {'a','e','i','o','u'};
+    int vowelCount = 0; 
+    for (int i = 0; i < s.length(); i++) {
+      char cha = s.charAt(i);
+      if (cha == 'a' || cha == 'e' || cha == 'i' 
+          || cha == 'o' || cha == 'u') {
+            vowelCount += 1;
+          }
+    }
+    if (vowelCount >= 2) {return false;}
+    return true;
+  }
+}
+
 class ListExamples {
 
   // Returns a new list that has all the elements of the input list for which
@@ -12,7 +28,7 @@ class ListExamples {
     List<String> result = new ArrayList<>();
     for(String s: list) {
       if(sc.checkString(s)) {
-        result.add(0, s);
+        result.add(s);
       }
     }
     return result;
